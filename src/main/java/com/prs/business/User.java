@@ -1,17 +1,30 @@
 package com.prs.business;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User {
-		
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int ID;
 		private String userName;
 		private String passWord;
 		private String firstName;
 		private String lastName;
-		private String phonNumber;
+		private String phoneNumber;
 		private String eMail;
 		private boolean isReviewer;
 		private boolean isAdmin;
+		
 
-		public User(int iD, String userName, String passWord, String firstName, String lastName, String phonNumber,
+		public User() {
+			super();
+		}
+
+		public User(int iD, String userName, String passWord, String firstName, String lastName, String phoneNumber,
 				String eMail, boolean isReviewer, boolean isAdmin) {
 			super();
 			ID = iD;
@@ -19,7 +32,7 @@ public class User {
 			this.passWord = passWord;
 			this.firstName = firstName;
 			this.lastName = lastName;
-			this.phonNumber = phonNumber;
+			this.phoneNumber = phoneNumber;
 			this.eMail = eMail;
 			this.isReviewer = isReviewer;
 			this.isAdmin = isAdmin;
@@ -28,7 +41,7 @@ public class User {
 		@Override
 		public String toString() {
 			return "User [ID=" + ID + ", userName=" + userName + ", passWord=" + passWord + ", firstName=" + firstName
-					+ ", lastName=" + lastName + ", phonNumber=" + phonNumber + ", eMail=" + eMail + ", isReviewer="
+					+ ", lastName=" + lastName + ", phonNumber=" + phoneNumber + ", eMail=" + eMail + ", isReviewer="
 					+ isReviewer + ", isAdmin=" + isAdmin + "]";
 		}
 
@@ -73,11 +86,11 @@ public class User {
 		}
 
 		public String getPhonNumber() {
-			return phonNumber;
+			return phoneNumber;
 		}
 
 		public void setPhonNumber(String phonNumber) {
-			this.phonNumber = phonNumber;
+			this.phoneNumber = phonNumber;
 		}
 
 		public String geteMail() {
